@@ -1,7 +1,7 @@
 {
   "variables": {
       "boot_wait": "5s",
-      "disk_size": "40960",
+      "disk_size": "80960",
       "iso_checksum": "13c3e7fca1fd32df61695584baafc14fa28d62816d0813116d23744f5394624b",
       "iso_url": "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.7-x86_64-minimal.iso",
       "memsize": "2048",
