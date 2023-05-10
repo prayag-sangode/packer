@@ -1,0 +1,72 @@
+---
+- name: "Setup.yml"
+  hosts: localhost
+  gather_facts: yes
+  become: yes
+  tasks:
+
+  - name: Install epel repo (Rocky)
+    dnf:
+      name: "epel-release"
+      state: latest
+    when: ansible_os_family == "Rocky"
+
+  - name: Upgrade all packages (Rocky)
+    dnf:
+      name: "*"
+      state: latest
+    when: ansible_os_family == "Rocky"
+
+  - name: Install packages (Rocky)
+    dnf:
+      name: "{{ packages }}"
+      state: latest
+    vars:
+      packages:
+      - bash-completion
+      - curl
+      - git
+      - rsync
+      - screen
+      - tcpdump
+      - vim
+      - wget
+    when: ansible_os_family == "Rocky"
+
+  - name: Install dependencies for VirtualBox Guest Additions (Rocky)
+    dnf:
+      name: "{{ packages }}"
+      state: latest
+    vars:
+      packages:
+      - bzip2
+      - dkms
+      - kernel-devel
+      - kernel-headers
+      - gcc
+      - make
+      - perl
+    when:
+      - ansible_os_family == "Rocky"
+      - ansible_virtualization_type == "virtualbox"
+
+  - name: Installing openscap packages
+      ansible.builtin.yum: pkg={{ item }}
+      loop:
+        - openscap-scanner
+        - openscap-utils
+        - scap-security-guide
+        - scap-workbench
+        - httpd
+
+    - name: Restart service httpd
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
+
+
+    - name: Enable service httpd, and not touch the state
+      ansible.builtin.service:
+        name: httpd
+        enabled: yes
+
