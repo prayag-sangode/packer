@@ -17,7 +17,6 @@ Commands to create an automated VM image:
 To create a Rocky Linux 8 VM image using VMware Workstation use the following commands:
 
 ```cmd
-cd c:\packer-Rocky8
 packer build -only=vmware-iso rocky8.json
 packer build -only=vmware-iso rocky8_uefi.json
 ```
@@ -25,7 +24,6 @@ packer build -only=vmware-iso rocky8_uefi.json
 To create a Rocky Linux 8 VM image using Oracle VM VirtualBox use the following commands:
 
 ```cmd
-cd c:\packer-Rocky8
 packer build -only=virtualbox-iso rocky8.json
 packer build -only=virtualbox-iso rocky8_uefi.json
 ```
