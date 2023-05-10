@@ -15053,5 +15053,3 @@
       - no_reboot_needed
       - package_xorg-x11-server-common_removed
 
-    - name: Openscap report
-      ansible.builtin.command: oscap  xccdf eval --report /root/server-scan.html  --profile xccdf_org.ssgproject.content_profile_cis_server_l1 /usr/share/xml/scap/ssg/content/ssg-rl8-ds.xml 
