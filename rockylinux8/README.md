@@ -1,19 +1,16 @@
-# packer-Rocky8
+# Using Packer to create RockyLinux8 Golden Image as per CIS Level1 Benchmark 
 
-## What is packer-Rocky8 ?
+## Install packer
 
-packer-Rocky8 is a set of configuration files used to build an automated Rocky Linux 8 virtual machine images using [Packer](https://www.packer.io/).
-This Packer configuration file allows you to build images for VMware Workstation and Oracle VM VirtualBox.
+```cmd
+wget https://releases.hashicorp.com/packer/1.8.7/packer_1.8.7_linux_amd64.zip
+unzip packer_1.8.7_linux_amd64.zip
+mv packer /usr/bin/
+which packer
+packer version
+```
 
-## Prerequisites
-
-- [Packer](https://www.packer.io/downloads.html)
-  - <https://www.packer.io/intro/getting-started/install.html>
-- A Hypervisor
-  - [VMware Workstation](https://www.vmware.com/products/workstation-pro.html)
-  - [Oracle VM VirtualBox](https://www.virtualbox.org/)
-
-## How to use Packer
+## Create Image
 
 Commands to create an automated VM image:
 
