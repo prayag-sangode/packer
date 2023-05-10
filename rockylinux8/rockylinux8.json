@@ -79,6 +79,10 @@
         {
       "type": "ansible-local",
       "playbook_file": "scripts/os-hardening.yml"
+    },
+        {
+      "type": "ansible-local",
+      "playbook_file": "scripts/post-install.yml"
     }
   ]     
 }

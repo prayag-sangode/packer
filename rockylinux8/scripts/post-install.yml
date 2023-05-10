@@ -51,16 +51,3 @@
       - ansible_virtualization_type == "virtualbox"
 
 
-    - name: Enable service httpd, and not touch the state
-      ansible.builtin.service:
-        name: httpd
-        enabled: yes
-
-    - name: Restart service httpd
-      ansible.builtin.service:
-        name: httpd
-        state: restarted
-
-    #- name: Openscap report
-    #  ansible.builtin.command: oscap  xccdf eval --report /var/www/html/server-scan.html  --profile xccdf_org.ssgproject.content_profile_cis_server_l1 /usr/share/xml/scap/ssg/content/ssg-rl8-ds.xml
-        
